@@ -1,0 +1,27 @@
+# import turtle
+
+# # tur
+# turtle.pensize(4)
+# turtle.pencolor('red')
+# turtle.forward(100)
+# turtle.right(90)
+# turtle.forward(100)
+# turtle.right(90)
+# turtle.forward(100)
+# # turtle.right(90)
+# # turtle.forward(100)
+# turtle.mainloop()
+# turtle.pensize(4)
+# turtle.pencolor('red')
+# turtle.forword(100)
+# turtle.right(90)
+# turtle.forward(100)
+# turtle.right(90)
+# turtle.forward(100)
+# turtle.right(90)
+# turtle.forward(100)
+# # turtle.mainloop()
+# def  foo():
+#     print('我是第一天的函数')
+url = 'https://movie.douban.com/review/best/?start={}'.format(10)
+print(url)
