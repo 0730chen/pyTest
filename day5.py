@@ -68,3 +68,16 @@
 #     for i in shape:
 #         print(i)
 #         print('周长',i.perimeter())
+
+from socket import socket
+#  自定义线程类
+from threading import Thread
+def main():
+    class Refresh(Thread):
+        def __init__(self,client):
+            super().__init__()
+            self._client = client
+        def run(self):
+            while running:
+                data = self._client.recv(1024)
+                print(data.decode('utf-8'))
