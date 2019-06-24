@@ -7,7 +7,7 @@ class blogSpider(Spider):
 	start_urls = ["http://www.acg.fi/anime/page/1"]
 	page = 1
 	count = 0
-	MAX_CATCH_PAGES = 5000
+	MAX_CATCH_PAGES = 100
 	item = ImageItem()
 	
 	def parse(self,response):
@@ -26,12 +26,18 @@ class blogSpider(Spider):
 			next_url = "http://www.acg.fi/anime/page/%d" % self.page
 			yield scrapy.Request(next_url,callback = self.parse)
 	def post_page(self, response):
+		
 		images_url =  response.xpath('//*[@id="post-single"]/header/div[1]').extract()
 		for i in images_url:
 			img_url = i[49:-10]
-			img_urls=[]
-			print('find %d images' %len(img_url))
+			img_urls = []
+			# print('获取到页面数量%d'len(img_url))
+			# print('find %d images' %len(img_url))
 			img_urls.append(img_url)
-			self.item['images'] = img_urls
-			print(self.item)
-			return self.item
+			# print('获取到%d图片'%len(img_urls))
+			self.item['image_urls'] = img_urls
+			print('我是最终的item数据',self.item)
+			yield self.item
+				
+			
+			

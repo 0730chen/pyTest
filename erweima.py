@@ -6,9 +6,9 @@ import json
 # r'C:\Users\Administrator\Desktop\150个记录.xlsx'
 def read():
     work = xlrd.open_workbook(r'C:\Users\Administrator\Desktop\150个记录.xlsx')
-    sheet1 = work.sheet_by_name('Sheet1')
+    sheet1 = work.sheet_by_name('Sheet2')
     datas = []
-    for i in range(1,103):
+    for i in range(1,25):
         x = sheet1.row_values(i)[0]
         data = sheet1.row_values(i)[1]
         # datas.append(data)
@@ -18,7 +18,7 @@ def read():
         newMsg = json.dumps(msg)
         # type(msg)
         datas.append(newMsg)
-    # print(datas[1])
+    print(datas)
     # print(datas[3])
     return datas
     # def erweima(datas):
@@ -67,10 +67,11 @@ def chage(data, i):
 if __name__ == '__main__':
     read()
     newMess = read()
-    number = 0
+    # number = 0
     # print(newMess)
     # print(newMess[1])
     # chage(newMess[0],0)
+    # 生成二维码的函数
     for i in range(len(newMess)):
         # print(newMess[i]+'我是newMess中的数据')
         chage(newMess[i],i)

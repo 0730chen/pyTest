@@ -23,7 +23,17 @@ ROBOTSTXT_OBEY = False
 USER_AGENT = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36"  
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-#CONCURRENT_REQUESTS = 32
+CONCURRENT_REQUESTS = 16
+DOWNLOAD_DELAY=1
+COOKIES_ENABLED = False
+# DEFAULT_REQUEST_HEADERS = {
+# 'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+# 'Accept-Encoding':'gzip, deflate, sdch',
+# 'Accept-Language':'zh-CN,zh;q=0.8',
+# 'Cache-Control':'max-age=0',
+# 'Connection':'keep-alive',
+# 'User-Agent':'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36'}
+
 
 # Configure a delay for requests for the same website (default: 0)
 # See https://doc.scrapy.org/en/latest/topics/settings.html#download-delay
@@ -66,10 +76,12 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'acg.pipelines.AcgPipeline': 300,
+   'acg.pipelines.AcgPipeline': 1,
 }
 # IMAGES_URLS_FIRLD = 'images'
-IMAGES_STORE = '../acg/images'
+IMAGES_STORE = 'E:\\music'
+# DOWNLOAD_FAIL_ON_DATALOSS = False
+IMAGES_EXPIRES = 90
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html

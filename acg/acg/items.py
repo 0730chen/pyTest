@@ -10,7 +10,8 @@ import scrapy
 
 class ImageItem(scrapy.Item):
     url = scrapy.Field()
-    images = scrapy.Field()
+    image_urls = scrapy.Field()
+    image_paths = scrapy.Field()
     # define the fields for your iitem here like:
     # name = scrapy.Field()
     # title = scrapy.Field()
