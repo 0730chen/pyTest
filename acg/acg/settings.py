@@ -80,6 +80,9 @@ ITEM_PIPELINES = {
 }
 # IMAGES_URLS_FIRLD = 'images'
 IMAGES_STORE = 'E:\\music'
+   # 需要指定item中的url下载
+IMAGES_URLS_FIELD='image_urls'
+MEDIA_ALLOW_REDIRECTS = True
 # DOWNLOAD_FAIL_ON_DATALOSS = False
 IMAGES_EXPIRES = 90
 

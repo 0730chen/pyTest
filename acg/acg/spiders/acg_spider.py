@@ -33,11 +33,16 @@ class blogSpider(Spider):
 			img_urls = []
 			# print('获取到页面数量%d'len(img_url))
 			# print('find %d images' %len(img_url))
+			if img_url[1] == '/':
+				img_url = img_url[2:-1] + 'j'
+			else:
+				img_url = img_url
+
 			img_urls.append(img_url)
-			# print('获取到%d图片'%len(img_urls))
+			print('获取到%d图片'%len(img_urls))
 			self.item['image_urls'] = img_urls
 			print('我是最终的item数据',self.item)
-			yield self.item
+			return self.item
 				
 			
 			

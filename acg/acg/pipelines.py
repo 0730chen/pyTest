@@ -3,7 +3,7 @@
 import scrapy
 from scrapy.pipelines.images import ImagesPipeline
 from scrapy.exceptions import DropItem
-from scrapy.http import Request
+from scrapy import Request
 
 # from scrapy import Request
 
@@ -31,13 +31,14 @@ class AcgPipeline(ImagesPipeline):
     def get_meida_requests(self,item,info):
             # self.headers['Referer'] = item['url']
             # print('进入下载器')
-            for image_url in item['image_urls']:
+            urls = item['image_urls']
+            for image_url in urls:
                 self.headers['referer'] = image_url
                 yield Request(image_url, headers=self.headers)
     def item_completed(self,results, item,info):
         image_paths = [x['path'] for ok, x in results if ok]
         if not image_paths:
-            raise DropItem('下载失败')
+            raise DropItem('Item contains no images')
         item['image_paths'] = image_paths
         
         return item
